@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EvfDemoApi.Api.Contracts.Products;
+namespace EvfDemoApi.Contracts.Products;
 
-public sealed class CreateProductRequest
+public sealed class UpdateProductRequest
 {
     [Required]
     [StringLength(100, MinimumLength = 2)]

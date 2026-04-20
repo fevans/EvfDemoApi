@@ -1,8 +1,8 @@
-using EvfDemoApi.Api.Contracts.Products;
-using EvfDemoApi.Api.Domain;
-using EvfDemoApi.Api.Repositories;
+using EvfDemoApi.Contracts.Products;
+using EvfDemoApi.Domain;
+using EvfDemoApi.Repositories;
 
-namespace EvfDemoApi.Api.Services;
+namespace EvfDemoApi.Services;
 
 public sealed class ProductService(IProductRepository repository) : IProductService
 {

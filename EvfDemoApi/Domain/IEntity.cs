@@ -1,4 +1,4 @@
-namespace EvfDemoApi.Api.Domain;
+namespace EvfDemoApi.Domain;
 
 public interface IEntity
 {

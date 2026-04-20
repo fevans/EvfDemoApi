@@ -1,6 +1,6 @@
-using EvfDemoApi.Api.Domain;
+using EvfDemoApi.Domain;
 
-namespace EvfDemoApi.Api.Repositories;
+namespace EvfDemoApi.Repositories;
 
 public interface IProductRepository
 {

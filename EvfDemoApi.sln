@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvfDemoApi.Tests", "EvfDemoApi.Tests\EvfDemoApi.Tests.csproj", "{8966F0AE-7B47-49F0-AEBA-ACB2C252C1A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvfDemoApi.Api", "EvfDemoApi.Api\EvfDemoApi.Api.csproj", "{CCADD4EC-A308-431D-84F0-48373F324A55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvfDemoApi", "EvfDemoApi\EvfDemoApi.csproj", "{CCADD4EC-A308-431D-84F0-48373F324A55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,8 @@
-using EvfDemoApi.Api.Contracts.Products;
-using EvfDemoApi.Api.Infrastructure.Validation;
-using EvfDemoApi.Api.Services;
+using EvfDemoApi.Infrastructure.Validation;
+using EvfDemoApi.Contracts.Products;
+using EvfDemoApi.Services;
 
-namespace EvfDemoApi.Api.Endpoints;
+namespace EvfDemoApi.Endpoints;
 
 public static class ProductEndpoints
 {

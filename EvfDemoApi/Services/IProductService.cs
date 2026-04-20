@@ -1,6 +1,6 @@
-using EvfDemoApi.Api.Contracts.Products;
+using EvfDemoApi.Contracts.Products;
 
-namespace EvfDemoApi.Api.Services;
+namespace EvfDemoApi.Services;
 
 public interface IProductService
 {

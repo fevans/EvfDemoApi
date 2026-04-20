@@ -1,6 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
-using EvfDemoApi.Api.Contracts.Products;
+using EvfDemoApi.Contracts.Products;
 using EvfDemoApi.Tests.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +21,7 @@ public sealed class ProductApiTests
             Price = 79.95m
         };
 
+        client.BaseAddress = new Uri("https://evfdemoapi-d0dxcnbxfcfdgmbx.ukwest-01.azurewebsites.net");
         var createResponse = await client.PostAsJsonAsync("/api/products", createRequest);
 
         Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
@@ -32,6 +33,7 @@ public sealed class ProductApiTests
         Assert.Equal(createRequest.Name, created.Name);
 
         var getResponse = await client.GetAsync($"/api/products/{created.Id}");
+        Console.WriteLine($"GET /api/products/{created.Id} - Status: {getResponse.StatusCode}");
 
         Assert.Equal(HttpStatusCode.OK, getResponse.StatusCode);
 

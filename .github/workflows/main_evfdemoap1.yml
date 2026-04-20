@@ -24,10 +24,13 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build ./EvfDemoApi.sln --configuration Release
+
+      - name: Run tests
+        run: dotnet test ./EvfDemoApi.Tests/EvfDemoApi.Tests.csproj --configuration Release --no-build --logger trx
 
       - name: dotnet publish
-        run: dotnet publish ./EvfDemoApi/EvfDemoApi.Api.csproj --configuration Release --output ./publish 
+        run: dotnet publish ./EvfDemoApi/EvfDemoApi.csproj --configuration Release --no-build --output ./publish 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EvfDemoApi.Api\EvfDemoApi.Api.csproj" />
+    <ProjectReference Include="..\EvfDemoApi\EvfDemoApi.csproj" />
   </ItemGroup>
 
 </Project>

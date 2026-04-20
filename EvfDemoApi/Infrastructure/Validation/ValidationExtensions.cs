@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace EvfDemoApi.Api.Infrastructure.Validation;
+namespace EvfDemoApi.Infrastructure.Validation;
 
 public static class ValidationExtensions
 {

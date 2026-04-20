@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
-using EvfDemoApi.Api.Domain;
+using EvfDemoApi.Domain;
 
-namespace EvfDemoApi.Api.Repositories;
+namespace EvfDemoApi.Repositories;
 
 public sealed class InMemoryProductRepository : IProductRepository
 {

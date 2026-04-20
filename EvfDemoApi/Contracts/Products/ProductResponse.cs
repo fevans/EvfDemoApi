@@ -1,4 +1,4 @@
-namespace EvfDemoApi.Api.Contracts.Products;
+namespace EvfDemoApi.Contracts.Products;
 
 public sealed record ProductResponse(
     Guid Id,

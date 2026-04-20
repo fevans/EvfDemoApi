@@ -1,7 +1,7 @@
-using EvfDemoApi.Api.Endpoints;
-using EvfDemoApi.Api.Infrastructure.ErrorHandling;
-using EvfDemoApi.Api.Repositories;
-using EvfDemoApi.Api.Services;
+using EvfDemoApi.Endpoints;
+using EvfDemoApi.Infrastructure.ErrorHandling;
+using EvfDemoApi.Repositories;
+using EvfDemoApi.Services;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);

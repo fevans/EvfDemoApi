@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EvfDemoApi.Api.Infrastructure.ErrorHandling;
+namespace EvfDemoApi.Infrastructure.ErrorHandling;
 
 public static class GlobalExceptionHandlerExtensions
 {
