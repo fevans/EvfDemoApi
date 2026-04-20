@@ -1,0 +1,90 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  BuildConfiguration: Release
+  DotNetSdkVersion: 10.0.x
+  SolutionFile: EvfDemoApi.sln
+  ApiProject: EvfDemoApi.Api/EvfDemoApi.Api.csproj
+  TestProject: EvfDemoApi.Tests/EvfDemoApi.Tests.csproj
+  AzureSubscription: your-service-connection-name
+  WebAppName: your-web-app-name
+
+stages:
+  - stage: BuildAndTest
+    displayName: Build, test, and publish
+    jobs:
+      - job: BuildAndTest
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - checkout: self
+
+          - task: UseDotNet@2
+            displayName: Use .NET SDK
+            inputs:
+              packageType: sdk
+              version: $(DotNetSdkVersion)
+
+          - task: DotNetCoreCLI@2
+            displayName: Restore solution
+            inputs:
+              command: restore
+              projects: $(SolutionFile)
+
+          - task: DotNetCoreCLI@2
+            displayName: Build solution
+            inputs:
+              command: build
+              projects: $(SolutionFile)
+              arguments: --configuration $(BuildConfiguration) --no-restore
+
+          - task: DotNetCoreCLI@2
+            displayName: Run integration tests
+            inputs:
+              command: test
+              projects: $(TestProject)
+              arguments: --configuration $(BuildConfiguration) --no-build --collect "XPlat Code Coverage"
+
+          - task: DotNetCoreCLI@2
+            displayName: Publish API
+            inputs:
+              command: publish
+              publishWebProjects: false
+              projects: $(ApiProject)
+              arguments: --configuration $(BuildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)/publish
+              zipAfterPublish: false
+
+          - publish: $(Build.ArtifactStagingDirectory)
+            artifact: drop
+
+  - stage: Deploy
+    displayName: Deploy to Azure Web App
+    dependsOn: BuildAndTest
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: DeployWebApp
+        environment: production
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
+
+                - task: AzureWebApp@1
+                  displayName: Deploy API to Azure Web App
+                  inputs:
+                    azureSubscription: $(AzureSubscription)
+                    appType: webAppLinux
+                    appName: $(WebAppName)
+                    package: $(Pipeline.Workspace)/drop/publish
