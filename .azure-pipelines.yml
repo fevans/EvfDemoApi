@@ -14,8 +14,8 @@ variables:
   SolutionFile: EvfDemoApi.sln
   ApiProject: EvfDemoApi.Api/EvfDemoApi.Api.csproj
   TestProject: EvfDemoApi.Tests/EvfDemoApi.Tests.csproj
-  AzureSubscription: your-service-connection-name
-  WebAppName: your-web-app-name
+  AzureSubscription: Az_EVFDev_RG1_Connection
+  WebAppName: evfdemoapi
 
 stages:
   - stage: BuildAndTest
