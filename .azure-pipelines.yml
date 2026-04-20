@@ -12,7 +12,7 @@ variables:
   BuildConfiguration: Release
   DotNetSdkVersion: 10.0.x
   SolutionFile: EvfDemoApi.sln
-  ApiProject: EvfDemoApi.Api/EvfDemoApi.Api.csproj
+  ApiProject: EvfDemoApi/EvfDemoApi.csproj
   TestProject: EvfDemoApi.Tests/EvfDemoApi.Tests.csproj
   AzureSubscription: Az_EVFDev_RG1_Connection
   WebAppName: evfdemoapi
