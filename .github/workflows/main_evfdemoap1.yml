@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish EvfDemoApi/EvfDemoApi.csproj --configuration Release --output ./publish 
+        run: dotnet publish ./EvfDemoApi/EvfDemoApi.csproj --configuration Release --output ./publish 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
