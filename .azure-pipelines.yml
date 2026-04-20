@@ -59,7 +59,7 @@ stages:
               command: publish
               publishWebProjects: false
               projects: $(ApiProject)
-              arguments: --configuration $(BuildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)/publish
+              arguments: --configuration $(BuildConfiguration) --no-build --output $(Build.ArtifactStagingDirectory)
               zipAfterPublish: false
 
           - publish: $(Build.ArtifactStagingDirectory)
@@ -87,4 +87,4 @@ stages:
                     azureSubscription: $(AzureSubscription)
                     appType: webAppLinux
                     appName: $(WebAppName)
-                    package: $(Pipeline.Workspace)/drop/publish
+                    package: $(Pipeline.Workspace)/drop
